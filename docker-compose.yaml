@@ -4,11 +4,14 @@ services:
   dockerkali:
     image: dockerkali:latest
     build: .
+    environment:
+      - DISPLAY=${DISPLAY}
     network_mode: host
     #ports:
       #- '80:5000'    
     volumes:
       - ./data_volume:/data
+      - /tmp/.X11-unix/:/tmp/.X11-unix/
     stdin_open: true 
     tty: true
     #cap_add:
