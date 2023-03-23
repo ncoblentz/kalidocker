@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  dockerkali:
+    image: dockerkali:latest
+    build: .
+    network_mode: host
+    #ports:
+      #- '80:5000'    
+    volumes:
+      - ./data_volume:/data
+    stdin_open: true 
+    tty: true
+    #cap_add:
+      #- NET_ADMIN
