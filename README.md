@@ -6645,7 +6645,7 @@ Successfully tagged dockerkali:latest
 ```bash
 ~/Documents/kalidocker$ docker-compose up -d
 Creating kalidocker_dockerkali_1 ... done
-ncoblentz@~/Documents/kalidocker$ docker attach kalidocker_dockerkali_1
+blah@~/Documents/kalidocker$ docker attach kalidocker_dockerkali_1
 └─$ whoami
 pentest
 
@@ -6655,7 +6655,7 @@ pentest
 root
 
 # Ctrl-P then Ctrl-Q
-ncoblentz@~/Documents/kalidocker$
+blah@~/Documents/kalidocker$
 └─$ read escape sequence
 
 ~/Documents/kalidocker$ docker-compose exec dockerkali bash
@@ -6663,12 +6663,12 @@ ncoblentz@~/Documents/kalidocker$
 └─$ exit
 exit
 
-ncoblentz@~/Documents/kalidocker$ docker-compose exec dockerkali bash
+blah@~/Documents/kalidocker$ docker-compose exec dockerkali bash
 ┌──(pentest㉿ncoblentz-HP-EliteBook-1040-G4)-[~/Downloads]
 └─$ exit
 exit
 
-ncoblentz@~/Documents/kalidocker$ docker exec -it kalidocker_dockerkali_1 bash
+blah@~/Documents/kalidocker$ docker exec -it kalidocker_dockerkali_1 bash
 ┌──(pentest㉿ncoblentz-HP-EliteBook-1040-G4)-[~/Downloads]
 └─$ sudo nmap www.google.com -p 80 -T4 -sV
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-03-24 14:25 UTC
