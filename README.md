@@ -60,7 +60,7 @@ I find that I prefer a particular linux distribution as my desktop environment a
 3. `EXPORT DOCKERKALIPENTESTPASSWORD=youpasswordhere`: This will be the password for the `pentest` user inside the image
     - Use `IFS= read -p 'Docker Kali Pentest User Password: ' -r DOCKERKALIPENTESTPASSWORD` then `export DOCKERKALIPENTESTPASSWORD` if you don't want the password to show up in bash history
 4. `mkdir data_volume`
-5. Enable BuildKit: `export DOCKER_BUILDKIT=1`
+5. Enable BuildKit: `export DOCKER_BUILDKIT=1` ([Docker BuildKit Tutorial: Why do we need a new Docker Builder?](https://www.youtube.com/watch?v=3B89b_gXAPU))
 6. Build the image with `docker-compose build`
 7. Run the image with `docker-compose up -d`
 8. Attach to the image with `docker attach kalidocker_dockerkali_1`
