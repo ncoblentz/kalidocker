@@ -7,6 +7,7 @@
   - [Demonstration of Building and Running the Image](#demonstration-of-building-and-running-the-image)
     - [Building](#building)
     - [Running](#running)
+  - [Scratch](#scratch)
 
 # Pentest Docker Image
 
@@ -50,24 +51,29 @@ I find that I prefer a particular linux distribution as my desktop environment a
     - puredns  
     - rustscan  
     - ripgen
+    - nuclei
+    - sqlmap
 
 ## Instructions
-1. Clone this repository and cd into the cloned directory
-1. change `yourpasswordhere` in `Dockerfile` to your chosen password
-1. `mkdir data_volume`
-1. Build the image with `docker-compose build`
-2. Run the image with `docker-compose up -d`
-3. Attach to the image with `docker attach kalidocker_dockerkali_1`
-4. For more terminals, consider the following options:
+1. Install the docker cli and daemon if not already installed: `sudo apt install docker docker.io docker-compose`
+2. Clone this repository and cd into the cloned directory
+3. `EXPORT DOCKERKALIPENTESTPASSWORD=youpasswordhere`: This will be the password for the `pentest` user inside the image
+    - Use `IFS= read -p 'Docker Kali Pentest User Password: ' -r DOCKERKALIPENTESTPASSWORD` then `export DOCKERKALIPENTESTPASSWORD` if you don't want the password to show up in bash history
+4. `mkdir data_volume`
+5. Enable BuildKit: `export DOCKER_BUILDKIT=1`
+6. Build the image with `docker-compose build`
+7. Run the image with `docker-compose up -d`
+8. Attach to the image with `docker attach kalidocker_dockerkali_1`
+9. For more terminals, consider the following options:
     - using `tmux` (installed) or `screen` on the first terminal
     - Run `docker-compose exec dockerkali bash`
     - Run `docker exec -it kalidocker_dockerkali_1 bash`
-4. the `/data_volume` directory is on the host mounted at `/data` inside docker to persist files
-4. Run gui applications from the docker container:
+10. the `/data_volume` directory is on the host mounted at `/data` inside docker to persist files
+11. Run gui applications from the docker container:
     - On the host: `xhost +local:*`
     - In the container: `google-chrome`
     - Remove xhost permissions afterward: `xhost -local:*`
-5. Detach with Ctrl+P then Ctrl+Q
+12. Detach with Ctrl+P then Ctrl+Q
 
 ## Notes
 
@@ -6731,3 +6737,6 @@ Service detection performed. Please report any incorrect results at https://nmap
 Nmap done: 1 IP address (1 host up) scanned in 61.54 seconds
 
 ```
+
+## Scratch
+`sudo apt install moby-buildx`

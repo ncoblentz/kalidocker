@@ -3,9 +3,13 @@ version: '3.8'
 services:
   dockerkali:
     image: dockerkali:latest
-    build: .
+    build:
+      context: .
+      args:
+        PENTESTUSERPASSWORD: $DOCKERKALIPENTESTPASSWORD
     environment:
       - DISPLAY=${DISPLAY}
+    
     network_mode: host
     #ports:
       #- '80:5000'    
