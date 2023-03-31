@@ -96,7 +96,7 @@ blah@~/Documents/kalidocker$ docker attach kalidocker_dockerkali_1
 └─$ whoami
 pentest
 
-┌──(pentest㉿ncoblentz-HP-EliteBook-1040-G4)-[~/Downloads]
+┌──(pentest㉿blah-Laptop)-[~/Downloads]
 └─$ sudo whoami
 [sudo] password for pentest: 
 root
@@ -106,17 +106,17 @@ blah@~/Documents/kalidocker$
 └─$ read escape sequence
 
 ~/Documents/kalidocker$ docker-compose exec dockerkali bash
-┌──(pentest㉿ncoblentz-HP-EliteBook-1040-G4)-[~/Downloads]
+┌──(pentest㉿blah-Laptop)-[~/Downloads]
 └─$ exit
 exit
 
 blah@~/Documents/kalidocker$ docker-compose exec dockerkali bash
-┌──(pentest㉿ncoblentz-HP-EliteBook-1040-G4)-[~/Downloads]
+┌──(pentest㉿blah-Laptop)-[~/Downloads]
 └─$ exit
 exit
 
 blah@~/Documents/kalidocker$ docker exec -it kalidocker_dockerkali_1 bash
-┌──(pentest㉿ncoblentz-HP-EliteBook-1040-G4)-[~/Downloads]
+┌──(pentest㉿blah-Laptop)-[~/Downloads]
 └─$ sudo nmap www.google.com -p 80 -T4 -sV
 Starting Nmap 7.93 ( https://nmap.org ) at 2023-03-24 14:25 UTC
 Nmap scan report for www.google.com (142.250.190.68)
