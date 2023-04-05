@@ -1,7 +1,7 @@
 - [Pentest Docker Image](#pentest-docker-image)
   - [Features](#features)
   - [Instructions](#instructions)
-  - [Notes](#notes)
+  - [Application Specific Notes](#application-specific-notes)
     - [Burp Suite Community](#burp-suite-community)
     - [Google Chrome](#google-chrome)
   - [Examples of Running the Image](#examples-of-running-the-image)
@@ -58,23 +58,25 @@ I find that I prefer a particular linux distribution as my desktop environment a
 2. Clone this repository and cd into the cloned directory
 3. `EXPORT DOCKERKALIPENTESTPASSWORD=youpasswordhere`: This will be the password for the `pentest` user inside the image
     - Use `IFS= read -p 'Docker Kali Pentest User Password: ' -r DOCKERKALIPENTESTPASSWORD` then `export DOCKERKALIPENTESTPASSWORD` if you don't want the password to show up in bash history
-4. `mkdir data_volume`
-5. Enable BuildKit: `export DOCKER_BUILDKIT=1` ([Docker BuildKit Tutorial: Why do we need a new Docker Builder?](https://www.youtube.com/watch?v=3B89b_gXAPU))
-6. Build the image with `docker-compose build`
-7. Run the image with `docker-compose up -d`
-8. Attach to the image with `docker attach kalidocker_dockerkali_1`
-9. For more terminals, consider the following options:
+4. `mkdir -p data_volume`
+5. `touch prefs.xml UserConfigPro.json` <-- `prefs.xml` is where the Burp Suite Pro license is stored.
+6. `mkdir -p .BurpSuite` <-- `.BurpSuite` is where your extensions and configuration are stored
+7. Enable BuildKit: `export DOCKER_BUILDKIT=1` ([Docker BuildKit Tutorial: Why do we need a new Docker Builder?](https://www.youtube.com/watch?v=3B89b_gXAPU))
+8. Download the BurpSuite Pro Jar file from https://portswigger.net/burp/releases and save the jar as `burppro.jar`
+9. Build the image with `docker-compose build`
+10. Run the image with `docker-compose up -d`
+11. Attach to the image with `docker attach kalidocker_dockerkali_1` (Detach with Ctrl+P then Ctrl+Q instead of exiting)
+12. For more terminals, consider the following options:
     - using `tmux` (installed) or `screen` on the first terminal
     - Run `docker-compose exec dockerkali bash`
     - Run `docker exec -it kalidocker_dockerkali_1 bash`
-10. the `/data_volume` directory is on the host mounted at `/data` inside docker to persist files
-11. Run gui applications from the docker container:
+13. the `/data_volume` directory is on the host mounted at `/data` inside docker to persist files
+14. To run GUI applications from the docker container:
     - On the host: `xhost +local:*`
     - In the container: `google-chrome`
     - Remove xhost permissions afterward: `xhost -local:*`
-12. Detach with Ctrl+P then Ctrl+Q
 
-## Notes
+## Application Specific Notes
 
 ### Burp Suite Community
 
@@ -168,3 +170,7 @@ Nmap done: 1 IP address (1 host up) scanned in 61.54 seconds
 
 ## Scratch
 `sudo apt install moby-buildx`
+`wget -O burppro2023.2.4.jar 'https://portswigger-cdn.net/burp/releases/download?product=pro&version=2023.2.4&type=Jar'`
+`java -XX:MaxRAMPercentage=50 -jar burppro2023.2.4.jar`
+`docker cp kalidocker_dockerkali_1:/home/pentest/.java/.userPrefs/burp/prefs.xml prefs.xml`
+`/home/pentest/.java/.userPrefs/burp/prefs.xml`

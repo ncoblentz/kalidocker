@@ -16,6 +16,8 @@ services:
     volumes:
       - ./data_volume:/data
       - /tmp/.X11-unix/:/tmp/.X11-unix/
+      - ./prefs.xml:/home/pentest/.java/.userPrefs/burp/prefs.xml
+      - ./.BurpSuite:/home/pentest/.BurpSuite
     stdin_open: true 
     tty: true
     #cap_add:
