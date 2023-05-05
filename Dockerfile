@@ -4,7 +4,7 @@ RUN useradd -m pentest && usermod -aG sudo pentest && echo "pentest:$PENTESTUSER
 RUN apt-get update && apt-get -y upgrade && apt-get install -y wget cargo golang sudo flatpak fonts-liberation libu2f-udev libvulkan1 xdg-utils dbus-x11 xclip
 
 FROM stage1 as stage2a
-RUN apt-get install -y nano assetfinder openvpn subfinder whois dnsutils dnsrecon sublist3r amass nmap cloud-enum masscan ffuf sslyze seclists massdns packagekit-gtk3-module libcanberra-gtk3-0 wordlists tmux screen burpsuite firefox-esr curl iputils-ping iproute2 nuclei sqlmap git && nuclei -ut
+RUN apt-get install -y nano assetfinder subfinder whois dnsutils dnsrecon sublist3r amass nmap cloud-enum masscan ffuf sslyze seclists massdns packagekit-gtk3-module libcanberra-gtk3-0 wordlists tmux screen burpsuite firefox-esr curl iputils-ping iproute2 nuclei sqlmap git && nuclei -ut
 WORKDIR /root
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && apt install ./google-chrome-stable_current_amd64.deb
 COPY burppro.jar /home/pentest/burppro.jar

@@ -18,6 +18,7 @@ I find that I prefer a particular linux distribution as my desktop environment a
 
 ## Features
 
+firefox-esr curl iputils-ping iproute2 nuclei sqlmap git && nuclei -ut
 - Run Kali Linux as a docker image with preinstalled tools (customize further if you desire)
 - Run as a lower privileged user (pentest) with sudo rights
 - GUI (X11) support
@@ -52,6 +53,10 @@ I find that I prefer a particular linux distribution as my desktop environment a
     - ripgen
     - nuclei
     - sqlmap
+    - httpx
+    - tlsx
+    - sqlmap
+    - dnsrecon
 
 ## Instructions
 1. Install the docker cli and daemon if not already installed: `sudo apt install docker docker.io docker-compose`
