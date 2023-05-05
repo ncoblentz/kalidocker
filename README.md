@@ -56,7 +56,7 @@ I find that I prefer a particular linux distribution as my desktop environment a
 ## Instructions
 1. Install the docker cli and daemon if not already installed: `sudo apt install docker docker.io docker-compose`
 2. Clone this repository and cd into the cloned directory
-3. `EXPORT DOCKERKALIPENTESTPASSWORD=youpasswordhere`: This will be the password for the `pentest` user inside the image
+3. `export DOCKERKALIPENTESTPASSWORD=youpasswordhere`: This will be the password for the `pentest` user inside the image
     - Use `IFS= read -p 'Docker Kali Pentest User Password: ' -r DOCKERKALIPENTESTPASSWORD` then `export DOCKERKALIPENTESTPASSWORD` if you don't want the password to show up in bash history
 4. `mkdir -p data_volume`
 5. `touch prefs.xml UserConfigPro.json` <-- `prefs.xml` is where the Burp Suite Pro license is stored.
