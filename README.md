@@ -3,6 +3,7 @@
   - [Instructions](#instructions)
   - [Application Specific Notes](#application-specific-notes)
     - [Burp Suite Community](#burp-suite-community)
+    - [GoWitness](#gowitness)
     - [Google Chrome](#google-chrome)
   - [Examples of Running the Image](#examples-of-running-the-image)
     - [Running](#running)
@@ -32,7 +33,7 @@ firefox-esr curl iputils-ping iproute2 nuclei sqlmap git && nuclei -ut
     - xclip
     - sudo
     - firefox-esr
-    - google chrome (to support gowitness which I haven't yet tested and expect a sandbox issue)
+    - google chrome
   - Pentesting Tools
     - assetfinder
     - subfinder
@@ -86,6 +87,9 @@ firefox-esr curl iputils-ping iproute2 nuclei sqlmap git && nuclei -ut
 ### Burp Suite Community
 
 Even though it runs as the user "pentest", it still complains about not being able to run the browser in a sandbox. To get the browser to run disable the sandbox (Really think about whether this is a good idea as it does expose you to risk). Go to Burp -> Settings -> Tools -> Burp's Browser, and check "Run Burp's browser without a sandbox".
+
+### GoWitness
+Run with `gowitness single -F https://www.example.com --chrome-path google-chrome-no-sandbox` or `gowitness file -f hosts.txt -F --chrome-path google-chrome-no-sandbox`
 
 ### Google Chrome
 
