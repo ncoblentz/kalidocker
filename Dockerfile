@@ -37,7 +37,6 @@ COPY --from=stage2d /home/pentest/.local /home/pentest/.local
 COPY ./burppro.jar /home/pentest/
 COPY ./burppro.sh /home/pentest/.local/bin/
 COPY ./google-chrome-no-sandbox /home/pentest/.local/bin/
-COPY burppro.jar /home/pentest/burppro.jar
 RUN chown -R pentest:pentest /home/pentest/.local/
 RUN setcap CAP_NET_RAW+ep /usr/bin/masscan
 USER pentest
